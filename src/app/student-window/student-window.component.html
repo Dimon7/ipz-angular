@@ -1,0 +1,35 @@
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="content">
+      <div class="exams" >
+
+        <table>
+          <thead>
+          <tr>
+            <td>Subject Name</td>
+            <td>Grade</td>
+            <td>Grade in ETCS</td>
+            <td>Student Name</td>
+            <td>Teacher Name</td>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr *ngFor="let e of exams">
+            <td>{{e.subjectName}}</td>
+            <td>{{e.grade}}</td>
+            <td>{{e.grade | marks}}</td>
+            <td>{{e.studentUserName}}</td>
+            <td>{{e.teacherUserName}}</td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <span (click)="close()" class="close">&times;</span>
+
+  </div>
+</div>

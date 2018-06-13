@@ -1,0 +1,72 @@
+<div id="myModal" class="modal">
+
+
+  <div class="modal-content">
+
+     <div class="left">
+
+       <div style="display: flex; flex-direction: column">
+         <span>Students without Team: </span>
+         <input type="text" [(ngModel)]="query">
+       </div>
+       <div class="studentsWithoutTeam" >
+         <div class="" *ngFor="let s of studentsWithoutTeam | search:'userName':query ">
+           <input type="checkbox" class="selected" />
+
+           <label > {{s.userName}} </label>
+         </div>
+
+       </div>
+
+
+
+
+     </div>
+
+
+
+     <div class="center">
+       <span>Students with Team: </span>
+       <div class="studentsWithoutTeam"  *ngIf="studentsWithTeam.length > 0">
+         <table>
+           <thead>
+           <tr>
+             <td>Name</td>
+             <td>Team</td>
+           </tr>
+           </thead>
+
+           <tbody>
+           <tr *ngFor="let s of studentsWithTeam" >
+             <td>{{s.userName}}</td>
+             <td class="{{s.teamId}} unique">{{s.teamNumber}}</td>
+           </tr>
+           </tbody>
+         </table>
+       </div>
+
+     </div>
+
+    <div class="right">
+
+      <div class="team-list">
+        <label class="team" for="teamList">Team</label>
+        <select name="teamList" id="teamList" [(ngModel)]="selectedTeam" (change)="lol()">
+          <option *ngFor="let team of teams" [value]="team.id">{{team.number}}</option>
+        </select>
+
+      </div>
+
+
+
+
+    </div>
+
+     <button class="match" (click)="match()">Match</button>
+     <span  (click)="close()" class="close">&times;</span>
+
+   </div>
+
+
+
+</div>

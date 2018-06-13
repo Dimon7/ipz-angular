@@ -1,0 +1,131 @@
+$color-form: #2196F3;
+$button-color: darken( $color-form, 15% );
+$button-hover-color: #197071;
+
+.login-item {
+  color: #ffff;
+  padding: 50px;
+}
+
+
+tr:nth-child(2n){
+  background-color: $button-color;
+}
+
+
+table{
+  width: 700px;
+}
+select{
+  width: 100px;
+  align-self: center;
+}
+input {
+  border: 0;
+  width: 40px;
+  padding: 0;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+
+}
+.team:before, .subject:before, .teacher:before, .type:before{
+  font: 14px fontawesome;
+  margin-right: 5px;
+  color: #fff;
+}
+
+
+.form-login label,
+.form-login input[type="text"] {
+
+  padding: 5px;
+
+}
+
+table{
+  border-collapse: collapse;
+
+  button{
+    width: 100%;
+  }
+}
+
+td{
+  padding: 5px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  p{
+    margin: 0;
+    padding: 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: #fff;
+
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.form-field {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem;
+  justify-content: flex-start;
+
+  div, span{
+    align-self: center;
+    margin: 5px;
+  }
+
+  input{
+    padding: 0!important;
+    margin: 5px;
+    width: 45px ;
+  }
+}
+
+.teacher-list, .team-list, .type-list, .subject-list{
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: 20px;
+
+
+  select{
+    width: 100%;
+
+  }
+
+  label{
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+
+  }
+}
+
+
+
+.exam{
+  width: 45px;
+  padding: 5px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+

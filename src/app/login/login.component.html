@@ -1,0 +1,89 @@
+
+<app-form>
+
+  <div class="login-item">
+    <div  class="form form-login">
+
+      <div class="form-field">
+        <label class="user" for="login-username"><span class="hidden">Name</span></label>
+        <input id="login-username" type="text" [(ngModel)]="name" class="form-input" placeholder="Username" required>
+      </div>
+
+      <div class="form-field">
+        <label class="email" for="register-login-email"><span class="hidden">Email</span></label>
+        <input id="register-login-email" type="text" [(ngModel)]="email" class="form-input" placeholder="Email" required>
+      </div>
+
+      <div class="form-field">
+        <label class="post" for="register-login-post"><span class="hidden">Post</span></label>
+        <select id="register-login-post" [(ngModel)]="evt" class="form-input">
+          <option value="val" disabled [selected]="true">Click youre post</option>
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+          <option value="secretary">Secretary</option>
+        </select>
+
+
+      </div>
+
+      <div class="form-field">
+        <label class="lock" for="register-login-password"><span class="hidden">Password</span></label>
+        <input id="register-login-password" type="password" [(ngModel)]="password" class="form-input" placeholder="Password" required>
+      </div>
+
+      <p *ngIf="error" style="background: #FF4081; padding: 10px;">{{error}}</p>
+      <div class="form-field">
+        <input type="submit" value="Sign Up" (click)="register()">
+      </div>
+
+      Have already an account? <input type="submit" (click)="scrollToEnter()" value="Go down!">
+
+
+    </div>
+
+
+  </div>
+
+</app-form>
+
+<app-form id="signin">
+
+  <div class="login-item" >
+    <div  class="form form-login">
+
+      <div class="form-field">
+        <label class="email" for="login-email"><span class="hidden">Email</span></label>
+        <input id="login-email" type="text" [(ngModel)]="dto.email" class="form-input" placeholder="Email" required>
+      </div>
+
+      <div class="form-field">
+
+
+        <label class="post" for="login-post"><span class="hidden">Post</span></label>
+        <select id="login-post" [(ngModel)]="dto.role" class="form-input">
+          <option value="val" disabled selected>Click you're post</option>
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+          <option value="secretary">Secretary</option>
+        </select>
+
+
+      </div>
+
+      <div class="form-field">
+        <label class="lock" for="login-password"><span class="hidden">Password</span></label>
+        <input id="login-password" type="password" [(ngModel)]="dto.password" class="form-input" placeholder="Password" required>
+      </div>
+
+      <p *ngIf="errorEnter" style="background: #FF4081; padding: 10px;">{{errorEnter}}</p>
+      <div class="form-field">
+        <input type="submit" value="Sign In" (click)="enter()">
+      </div>
+    </div>
+
+
+  </div>
+
+</app-form>
+
+

@@ -1,0 +1,59 @@
+<div [@dialog] id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="content">
+      <div class="exams" >
+
+        <div class="header">
+          <label for="sortBySubject">sortBySubject</label>
+          <select name="" id="sortBySubject" [(ngModel)]="sortBySubject">
+            <option value="*" selected="selected">*</option>
+            <option *ngFor="let s of subjects" [value]=s.name>{{s.name}}</option>
+          </select>
+
+          <label for="sortByTeam">sortByTeam</label>
+          <select name="" id="sortByTeam" [(ngModel)]="sortByTeam">
+            <option value="*" selected="selected">*</option>
+            <option *ngFor="let tt of teams" [value]=tt.number>{{tt.number}}</option>
+          </select>
+
+          <label for="sortByTeacher">sortByTeacher</label>
+          <select name="" id="sortByTeacher" [(ngModel)]="sortByTeacher">
+            <option value="*" selected="selected">*</option>
+            <option *ngFor="let t of teachers" [value]=t.userName>{{t.userName}}</option>
+
+          </select>
+        </div>
+        <div style="overflow-y: auto; height: 500px;">
+          <table style="margin-right: 5px;">
+            <thead>
+            <tr>
+              <td>Subject Name</td>
+              <td>Grade</td>
+              <td>Grade in ETCS</td>
+              <td>Student Name</td>
+              <td>Student Team</td>
+              <td>Teacher Name</td>
+            </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let e of exams | subjects: sortBySubject | team: sortByTeam | teacher:sortByTeacher ">
+                <td>{{e.subjectName}}</td>
+                <td>{{e.grade}}</td>
+                <td>{{e.grade | marks}}</td>
+                <td>{{e.studentUserName}}</td>
+                <td>{{e.studentTeamNumber}}</td>
+                <td>{{e.teacherUserName}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+     </div>
+      <span (click)="close()" class="close">&times;</span>
+
+  </div>
+</div>

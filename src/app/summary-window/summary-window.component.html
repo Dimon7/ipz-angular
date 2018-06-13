@@ -1,0 +1,75 @@
+<div id="myModal" class="modal">
+
+
+  <div class="modal-content">
+
+
+    <div class="left">
+      <div *ngIf="result.good.length>0">Student with Scholarship</div>
+      <div *ngFor="let g of result.good" class="list">
+        <div>{{g}}</div>
+      </div>
+
+      <hr>
+      <div *ngIf="result.bad.length>0">Students withot Scholarship</div>
+      <div *ngFor="let bad of result.bad" class="list">
+
+        <div>{{bad}}</div>
+      </div>
+
+      <hr>
+      <div *ngIf="result.borg.length>0">Debt Student</div>
+      <div *ngFor="let b of result.borg" class="list">
+        <div>{{b}}</div>
+      </div>
+    </div>
+
+
+    <div class="center">
+      <div>Result by Team</div>
+
+
+      <table>
+        <thead>
+        <tr>
+          <td>Team Name</td>
+          <td>Average Teams Grade</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let t of result.t">
+          <td>{{t.teamNumber}} </td>
+          <td>{{t.avrTeamGrade}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="right">
+      <div>Result by Subjects</div>
+
+
+        <table>
+          <thead>
+            <tr>
+              <td>Subject Name</td>
+              <td>Average Subjects Grade</td>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let s of result.s">
+            <td>{{s.subjectsName}} </td>
+            <td>{{s.avrSubjectGrade}}</td>
+          </tr>
+
+          </tbody>
+        </table>
+
+    </div>
+
+    <span  (click)="close()" class="close">&times;</span>
+  </div>
+
+
+</div>

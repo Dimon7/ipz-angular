@@ -1,0 +1,61 @@
+<app-form *ngIf="teacher">
+  <div class="login-item">
+    <div  class="form form-login">
+
+      <div class="header">
+        <p style="align-self: center"> Hello, &nbsp;&nbsp; {{teacher.userName}}</p>
+        <label for="sortBySubject">sortBySubject</label>
+        <select name="" id="sortBySubject" [(ngModel)]="sortBySubject">
+          <option value="*" [selected]="true">*</option>
+          <option *ngFor="let s of subjects"  [value]="s">{{s}}</option>
+        </select>
+
+        <label for="sortByTeam">sortByTeam</label>
+        <select name="" id="sortByTeam" [(ngModel)]="sortByTeam">
+          <option value="*" selected="selected">*</option>
+          <option *ngFor="let e of teams"  [value]="e">{{e}}</option>
+
+        </select>
+        <a style="align-self: center" href="/signup">LogOut</a>
+      </div>
+
+      <div style="max-height:555px; overflow-y:auto;">
+        <table>
+        <thead>
+          <tr>
+            <td>Subject Name</td>
+            <td>Student Name</td>
+            <td>Grade</td>
+            <td>Student Team</td>
+            <td></td>
+            <td>Date</td>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let e of exams | subjects: sortBySubject | team: sortByTeam; let i = index">
+              <td style="text-align: center">{{e.subjectName}}</td>
+              <td>{{e.studentUserName}}</td>
+              <td><input type="text" placeholder="grade" [(ngModel)]="e.grade" ></td>
+              <td>{{e.studentTeamNumber}}</td>
+              <td style="text-align: center;">
+                <input class="exam" type="button" value="exam" (click)="edit(e.id, e.grade, i)" *ngIf="!spinner[i]">
+                <mat-progress-spinner [diameter]="15" class="spinner" mode="indeterminate" *ngIf="spinner[i]"> </mat-progress-spinner>
+              </td>
+              <td> {{e.date | date:'dd/MM/yyyy'}} </td>
+            </tr>
+
+        </tbody>
+      </table>
+
+        <div style="background: red; text-align: center; padding: 10px; margin-top: 5px;" *ngIf="error">
+          <p style="padding: 0; margin: 0;">{{error}}</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</app-form>

@@ -1,0 +1,47 @@
+<app-form *ngIf="student">
+
+  <div class="login-item">
+    <div  class="form form-login">
+
+      <div class="header">
+        <p style="align-self: center"> Hello, &nbsp;&nbsp; {{student.userName}}</p>
+        <p>You are in {{student.teamNumber}} team</p>
+        <a style="align-self: center" href="/signup">LogOut</a>
+      </div>
+
+      <div class="content">
+        <div class="exams" >
+
+          <table>
+            <thead>
+            <tr>
+              <td>Subject Name</td>
+              <td>Grade</td>
+              <td>Grade in ETCS</td>
+              <td>Teacher Name</td>
+              <td>Date</td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let e of exams">
+              <td>{{e.subjectName}}</td>
+              <td>{{e.grade}}</td>
+              <td>{{e.grade | marks}}</td>
+              <td>{{e.teacherUserName}}</td>
+              <td>{{e.date | date}}</td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+</app-form>

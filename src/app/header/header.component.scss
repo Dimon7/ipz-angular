@@ -1,0 +1,21 @@
+$color       : #89479B;
+$color-hover : yellow;
+
+.header{
+  display: flex;
+  background: $color;
+  padding: 15px;
+  color: white;
+  justify-content: space-around;
+  height: 30px;
+
+  div{
+    align-self: center;
+
+    &:hover{
+      cursor: pointer;
+      color: $color-hover;
+      font-weight: bold;
+    }
+  }
+}
